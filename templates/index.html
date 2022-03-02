@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- form- topic=Anime quiz -->
+<!-- navigation bar=home,about us,View results,rankings topright-contact us,support us -->
+<!-- 5 ques center aligned ,1 suggestion box and submit button? -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            color: white;
+            box-sizing: border-box
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-image: url(https://i.pinimg.com/originals/46/c1/cf/46c1cf8cbbec8202cb33b5359e97f396.jpg);
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        header {
+            font-family: 'Shizuru', cursive;
+        }
+
+        .left {
+            /* border: 2px solid yellow; */
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            left: 7px;
+        }
+
+        .left img {
+            height: 203px;
+            width: 239px;
+        }
+
+        .left h1 {
+            line-height: 0px;
+            font-size: 16px;
+            color: #d0d0d0;
+            text-align: center;
+        }
+
+        .center {
+            display: block;
+            margin: 50px auto;
+            width: 99%;
+            background-color: blue;
+            border-radius: 40px;
+            border: 2px solid darkblue;
+            /* border: 2px solid green; */
+            text-align: center;
+        }
+
+
+        .navbar {
+            display: inline-block;
+        }
+
+        .navbar li {
+            display: inline-block;
+
+        }
+
+        .navbarimg img {
+            display: inline-block;
+            height: 90px;
+            width: 90px;
+            position: absolute;
+            top: 68px;
+            right: 50px;
+        }
+
+        .navbar a {
+            font-size: 63px;
+            color: white;
+            text-decoration: none;
+            padding: 11px 22px;
+            margin: 4px 2px;
+            border-right: 2px solid darkblue;
+        }
+
+        .navbar a:hover {
+            color: green;
+        }
+
+        .textbox textarea {
+            display: inline-block;
+            background-color: black;
+            color: white;
+            margin: 21px auto;
+            height: 64px;
+            width: 900px;
+
+        }
+
+        .main {
+            font-size: 30px;
+            display: block;
+            text-align: left;
+            height: 841px;
+            width: 1135px;
+            margin: 47px auto;
+            padding: 6px 39px;
+            /* border: chartreuse 2px solid; */
+        }
+
+        .information {
+            margin: 4px auto;
+        }
+
+        .information input {
+            color: black;
+            display: inline;
+            font-size: 26px;
+            margin: 4px 4px;
+            padding: 4px 4px;
+        }
+
+        .ques {
+            margin: 31px 1px 1px 1px;
+            color: yellow
+        }
+
+        .options {
+            display: inline;
+            margin: 1px 1px 1px 1px;
+            color: red;
+        }
+
+        .options input {
+            margin: 4px 32px 10px 1px;
+        }
+
+        .btn input {
+            background-color: #32cb9e;
+            color: black;
+            margin: 20px 163px;
+            text-align: center;
+            padding: 3px 20px;
+            display: inline-block;
+            width: 185px;
+            height: 67px;
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="left">
+            <img src="https://m.media-amazon.com/images/I/61h+9VGYz3L._AC_SX355_.jpg" alt="Error in logo">
+            <h1>Adeptus</h1>
+        </div>
+        <div class="center">
+            <ul class="navbar">
+                <li><a href="#">Home</a> </li>
+                <li><a href="#">About Us</a> </li>
+                <li><a href="#">View Results</a> </li>
+                <li><a href="#">Rankings</a> </li>
+                <div class="navbarimg">
+                    <img src="https://st2.depositphotos.com/1032749/7119/v/600/depositphotos_71194851-stock-illustration-quiz-speech-bubble-icon.jpg"
+                        alt="">
+                </div>
+        </div>
+        </ul>
+    </header>
+    <div class="main">
+        <form action="/result" method="post">{% csrf_token %}
+            <div class="information">
+                <input type="text" name="name" placeholder="Enter your name">
+                <input type="number" name="age" placeholder="Enter your age">
+                <input type="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="quiz">
+                <p class="ques">1.Anime originates from which country?</p>
+                <div class="options">
+                    A.Japan<input type="radio" name="q1correct">B.USA <input type="radio" name="q1">C.China<input type="radio"
+                        name="q1">
+                </div>
+                <p class="ques">2.In the first season of In Sword Art Online, what is the black blade used by Kirito
+                    called?</p>
+                <div class="options">
+                    A.The Elucidator<input type="radio" name="q2correct">B.Rising Sun<input type="radio" name="q2">C.Blue
+                    Dragon<input type="radio" name="q2">
+                </div>
+                <p class="ques">3.As of 2021, what is the highest-grossing anime movies of all time?</p>
+                <div class="options">
+                    A.Howl's moving castle<input type="radio" name="q3">B.Your name <input type="radio"
+                        name="q3">C.Demon slayer:Mugen train<input type="radio" name="q3correct">
+                </div>
+                <p class="ques">4.In the anime Dragon Ball, what can you do after collecting all seven dragon balls?</p>
+                <div class="options">
+                    A.To fullfill wishes<input type="radio" name="q4correct">B.To become immortal<input type="radio"
+                        name="q4">C.To rule the world<input type="radio" name="q4">
+                </div>
+                <p class="ques">5In the anime Tokyo Ghoul, the organs of which ghoul was transplanted to the main hero?
+                </p>
+                <div class="options">
+                    A. Shuu Tsukiyama<input type="radio" name="q5">B.Rize Kamishiro<input type="radio" name="q5correct">C.Ken
+                    Kaneki<input type="radio" name="q5">
+                </div>
+                <div class="textbox">
+                    <textarea name="mytextbix" id="txtbox" cols="30" rows="10"
+                        placeholder="Write your suggestions here"></textarea>
+                </div>
+                <div class="btn">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>
